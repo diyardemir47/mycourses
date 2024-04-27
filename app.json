@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mycourses",
-    "slug": "mycourses",
+    "name": "kurs",
+    "slug": "kurs",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

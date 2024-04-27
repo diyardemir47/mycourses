@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-export default function ManageCourse() {
+export default function CoursesList() {
   return (
     <View>
-      <Text>ManageCourse</Text>
+      <Text>CoursesList</Text>
     </View>
   );
 }
