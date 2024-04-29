@@ -16,7 +16,7 @@ export default function CourseItem({ amount, date, description, id }) {
       <View style={styles.courseContainer}>
         <View>
           <Text style={styles.description}>{description}</Text>
-          <Text>{getFormattedDate(date)}</Text>
+          <Text style={styles.date}>{getFormattedDate(date)}</Text>
         </View>
         <View style={styles.priceContainer}>
           <Text style={styles.price}>{amount}</Text>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   courseContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'pink',
+    backgroundColor: 'black', // Mor renk
     marginVertical: 8,
     padding: 12,
     borderRadius: 20,
@@ -44,9 +44,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 5,
+    color: '#FFFFFF', // Beyaz renk
   },
   priceContainer: {
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF', // Beyaz arka plan
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
@@ -55,6 +56,9 @@ const styles = StyleSheet.create({
   },
   price: {
     fontWeight: 'bold',
-    color: 'blue',
+    color: '#0000FF', // Mavi renk
   },
+  date:{
+    color:'white'
+  }
 });

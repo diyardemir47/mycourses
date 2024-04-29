@@ -134,45 +134,55 @@ const styles = StyleSheet.create({
   form: {
     marginTop: 40,
   },
+  
   title: {
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'blue',
+    color: '#800080', // Mor renk
     marginVertical: 20,
   },
+  
   priceAndDate: {
     flexDirection: 'row',
   },
+  
   flexAll: {
     flex: 1,
   },
+  
   buttons: {
     flexDirection: 'row',
     justifyContent: 'center',
   },
+  
   cancel: {
-    backgroundColor: 'red',
+    backgroundColor: '#800000', // Mor renk
     minWidth: 120,
     marginRight: 10,
     padding: 8,
     alignItems: 'center',
   },
+  
   cancelText: {
-    color: 'white',
+    color: '#ffffff', // Beyaz renk
   },
+  
   addOrDelete: {
-    backgroundColor: 'blue',
+    backgroundColor: '#0000ff', // Mavi renk
     minWidth: 120,
     marginRight: 10,
     padding: 8,
     alignItems: 'center',
   },
+  
   addOrDeleteText: {
-    color: 'white',
+    color: '#ffffff', // Beyaz renk
   },
+  
   error: {
     alignItems: 'center',
     marginBottom: 10,
   },
+  // İsteğe bağlı olarak input alanlarının stillerini buraya ekleyebilirsiniz
 });

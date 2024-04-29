@@ -22,10 +22,12 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 25,
     paddingTop: 25,
+    backgroundColor: '#FFFFFF', // Beyaz arka plan
   },
   alert: {
     fontSize: 16,
     textAlign: 'center',
     marginTop: 30,
+    color: 'black', // Mor renk
   },
 });

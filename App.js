@@ -16,48 +16,49 @@ const Tab = createBottomTabNavigator();
 function CourseOverview() {
   return (
     <Tab.Navigator
-      screenOptions={({ navigation }) => ({
-        headerStyle: { backgroundColor: 'pink' },
-        headerTintColor: 'white',
-        tabBarStyle: { backgroundColor: 'pink' },
-        tabBarActiveTintColor: 'darkblue',
-        headerRight: () => (
-          <Pressable
-            style={({ pressed }) => pressed && styles.pressed}
-            onPress={() => {
-              navigation.navigate('ManageCourse');
-            }}
-          >
-            <View style={styles.iconContainer}>
-              <AntDesign name="plus" size={24} color="white" />
-            </View>
-          </Pressable>
-        ),
-      })}
-    >
-      <Tab.Screen
-        name="RecentCourses"
-        component={RecentCourses}
-        options={{
-          title: 'Yakın Zamanda Kaydolunanlar',
-          tabBarLabel: 'Yakın Zamanda',
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name="hourglass" size={size} color={color} />
-          ),
+  screenOptions={({ navigation }) => ({
+    headerStyle: { backgroundColor: 'black' }, // Mor rengi
+    headerTintColor: 'white',
+    tabBarStyle: { backgroundColor: 'black' }, // Mor rengi
+    tabBarActiveTintColor: 'darkblue',
+    headerRight: () => (
+      <Pressable
+        style={({ pressed }) => pressed && styles.pressed}
+        onPress={() => {
+          navigation.navigate('ManageCourse');
         }}
-      />
-      <Tab.Screen
-        name="AllCourses"
-        component={AllCourses}
-        options={{
-          title: 'Tüm Kurslar',
-          tabBarLabel: 'Tüm Kurslar',
-          tabBarIcon: ({ color, size }) => (
-            <Entypo name="list" size={size} color={color} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
+      >
+        <View style={styles.iconContainer}>
+          <AntDesign name="plus" size={24} color="white" />
+        </View>
+      </Pressable>
+    ),
+  })}
+>
+  <Tab.Screen
+    name="RecentCourses"
+    component={RecentCourses}
+    options={{
+      title: 'Yakın Zamanda Kaydolunanlar',
+      tabBarLabel: 'Yakın Zamanda',
+      tabBarIcon: ({ color, size }) => (
+        <AntDesign name="hourglass" size={size} color="#FFFFFF" /> // Beyaz renk
+      ),
+    }}
+  />
+  <Tab.Screen
+    name="AllCourses"
+    component={AllCourses}
+    options={{
+      title: 'Tüm Kurslar',
+      tabBarLabel: 'Tüm Kurslar',
+      tabBarIcon: ({ color, size }) => (
+        <Entypo name="list" size={size} color="#FFFFFF" /> // Beyaz renk
+      ),
+    }}
+  />
+</Tab.Navigator>
+
   );
 }
 
@@ -74,6 +75,7 @@ export default function App() {
           <Stack.Screen name="ManageCourse" component={ManageCourse} />
         </Stack.Navigator>
       </NavigationContainer>
+      <StatusBar style="auto" />
     </CoursesContextProvider>
   );
 }

@@ -13,22 +13,24 @@ export default function CoursesSummary({ periodName, courses }) {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#0000ff', // Mavi renk
     padding: 8,
     borderRadius: 10,
   },
+  
   title: {
-    color: 'white',
+    color: '#ffffff', // Beyaz renk
     fontSize: 12,
   },
+  
   cost: {
-    color: 'white',
+    color: '#ffffff', // Beyaz renk
     fontSize: 16,
     fontWeight: 'bold',
   },
