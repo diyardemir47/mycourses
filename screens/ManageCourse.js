@@ -2,10 +2,18 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { useLayoutEffect } from 'react';
 import { EvilIcons } from '@expo/vector-icons';
+import { useContext } from 'react';
+import { CoursesContext } from '../store/coursesContext';
+import CourseForm from '../components/CourseForm';
 
 export default function ManageCourse({ route, navigation }) {
+  const coursesContext = useContext(CoursesContext);
   const courseId = route.params?.courseId;
   let isEditing = false;
+
+  const selectedCourse = coursesContext.courses.find(
+    (course) => course.id === courseId
+  );
 
   if (courseId) {
     isEditing = true;
@@ -18,6 +26,7 @@ export default function ManageCourse({ route, navigation }) {
   }, [navigation, isEditing]);
 
   function deleteCourse() {
+    coursesContext.deleteCourse(courseId);
     navigation.goBack();
   }
 
@@ -25,22 +34,23 @@ export default function ManageCourse({ route, navigation }) {
     navigation.goBack();
   }
 
+  function addOrUpdateHandler(courseData) {
+    if (isEditing) {
+      coursesContext.updateCourse(courseId, courseData);
+    } else {
+      coursesContext.addCourse(courseData);
+    }
+    navigation.goBack();
+  }
+
   return (
     <View style={styles.container}>
-      <View style={styles.buttons}>
-        <Pressable onPress={cancelHandler}>
-          <View style={styles.cancel}>
-            <Text style={styles.cancelText}>İptal Et</Text>
-          </View>
-        </Pressable>
-        <Pressable>
-          <View style={styles.addOrDelete}>
-            <Text style={styles.addOrDeleteText}>
-              {isEditing ? 'Güncelle' : 'Ekle'}
-            </Text>
-          </View>
-        </Pressable>
-      </View>
+      <CourseForm
+        buttonLabel={isEditing ? 'Güncelle' : 'Ekle'}
+        onSubmit={addOrUpdateHandler}
+        cancelHandler={cancelHandler}
+        defaultValues={selectedCourse}
+      />
 
       {isEditing && (
         <View style={styles.deleteContainer}>
@@ -67,29 +77,5 @@ const styles = StyleSheet.create({
     borderTopColor: 'blue',
     paddingTop: 10,
     marginTop: 16,
-  },
-  buttons: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  cancel: {
-    backgroundColor: 'red',
-    minWidth: 120,
-    marginRight: 10,
-    padding: 8,
-    alignItems: 'center',
-  },
-  cancelText: {
-    color: 'white',
-  },
-  addOrDelete: {
-    backgroundColor: 'blue',
-    minWidth: 120,
-    marginRight: 10,
-    padding: 8,
-    alignItems: 'center',
-  },
-  addOrDeleteText: {
-    color: 'white',
   },
 });
